@@ -1,15 +1,4 @@
 <script>
-/*
-
-if the width less than 870px, we think it is too narrow
-
-Specifically:
-
-	- delete "一言"
-	- move search box into sidebar
-	- 
-
-*/
 
 /*此文件只需修改下面两行信息*/
 /*分别写你的用户名，博客开始使用的年、月、日*/
@@ -405,12 +394,25 @@ function showAndHideNarrowTopmenu(){
 
 <script>
 /*将侧边栏复制到menu里*/
-$(document).ready(function(){
-  $("#myBlogStats").html($(".blogStats").html());
-  $("#myMenu").html($("#sideBarMain").html());
+//window.onload = function(){
 
-  $("#others").html($("#footer").html());
+window.addEventListener("load", (event) => {
+		console.log("copying!");
+	let menu = document.getElementById("menuList");
+
+	let blogStats = document.getElementsByClassName("blogStats")[0].cloneNode(true);
+	blogStats.id = "myBlogStats";
+	menu.insertBefore(blogStats, topMenuSearch2);
+
+	let sideBarMain = document.getElementById("sideBarMain").cloneNode(true);
+	sideBarMain.id = "myMenu";
+	menu.appendChild(sideBarMain);
+
+	let footer = document.getElementById("footer").cloneNode(true);
+	footer.id = "others";
+	document.getElementById("bottom").appendChild(footer);
 });
+//};
 </script>
 
 <script>
@@ -433,29 +435,6 @@ function getTime(){
   htmlDate.innerHTML="This blog has running: "+day+" days "+hour+" hours "+min+" minutes "+sec+" seconds"
 }
 setInterval("getTime()", 500);
-</script>
-
-<script>
-/*****设置关注按钮*****/
-
-window.onload=function(){
-	let followMeNode=document.getElementById("p_b_follow").childNodes;
-	let leaveIt=0;
-	for(let tmp=0;tmp<followMeNode.length;tmp++){
-		if(followMeNode[tmp].innerHTML=="+加关注"){
-			followMeNode[tmp].innerHTML="关注我";
-			leaveIt=1;
-			break;
-		}
-		else if(followMeNode[tmp].innerHTML=="-取消关注"){
-			followMeNode[tmp].innerHTML="已关注";
-			leaveIt=0;
-			break;
-		}
-	}
-	document.getElementById("p_b_follow").style="display:block";
-	if(!leaveIt) document.getElementById("p_b_follow").remove();
-}
 </script>
 
  
