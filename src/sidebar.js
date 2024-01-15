@@ -185,26 +185,10 @@ userNameStyle.type="text/css";
 /********预处理*******/
 document.getElementById("mainContent").style="width:100% !important;padding-left:25px !important;padding-right:25px !important;";
 
-/*home width*/
-// var home_min_width;
-// if(nowUrl=="/"+USERNAME+"/"||nowUrl=="/"+USERNAME) home_min_width=830;
-// else home_min_width=770;
-
-// let width=document.body.clientWidth;
-// var want_width=Math.max(home_min_width,Math.floor(width*0.7));
-// console.log("want 70% of width is: "+want_width+"and the width: "+width);
-// var Home=document.getElementById("home"),TopMenuMain=document.getElementById("topMenuMain");
-
 doFuckingThings();
 
 var st=["<center>没有神的光环，我们生而平凡 <br> <center>这就是你不拿rank1得理由？<br>",                          "<center>我遇见你，我记住你<br><center>这座城市天生适合恋爱，<br><center>你的灵魂天生适合我<br>",                          "<center>你知道<br><center>Nice to meet you<br><center>是什么意思么？<br><center>很高兴见到你呗<br><center>不啊，“有生之年，幸得相逢。”<br>",                          "<center>前半生无你<br><center>余生请指教.<br>",                          "<center>你好，冒昧打搅了<br><center>我今天也特别喜欢你.<br>",                          "<center>it takes sonebody an hour to like someonoe,<br><center>and a day to like someone,<br><center>but it takes a life time to forget someone.<br>",                          "<center>you have only one life and one chance to do all the things you want to do.<br>",                          "<center>你就像桌上那份时事报,<br><center>当时读新鲜，以后读怀念<br><center>悲欢越来越远,<br><center>可还是会小心翼翼地折好，安放<br>",                          "<center>你特别好，我喜欢你<br>",                          "<center>我终不能改变那个开始，<br><center>何不忘了那个结局呢？<br>",                          "<center>it takes only a smile to make a darkday seem bright<br>",                          "<center>无论在哪里遇上你，<br><center>我都会喜欢你<br>",                          "<center> 你若盛开，清风自来<br>",                          "<center>用我一生,<br><center>换你十年天真。<br><center>忘了我吧，<br><center>吴邪。<br>",                          "<center>太想摘取星星得人，<br><center>往往忽视了脚下得鲜花。<br>",                          "<center> 无论发生什么，<br><center>希望你都不要后悔与我得相识。<br>",                          "<center> 生生生生暗生始，<br><center>死死死死冥死终。<br>",                          "<center> 未来不是被给予的，<br><center>而是自己争取的。 <br>",                          "<center> あたいってば最強ね！ <br>",                          "<center> 十步杀一人，<br><center> 千里不留行。<br>",                          "<center> 当一切都消失得时候<br><center> 你就会明白生命有何价值<br>",                          "<center> 不是他，变成他<br>",                          "<center> 也许我们都没有长大，<br><center> 只是世界变小了。<br>",                          "<center> Time waits for no one.<br>",                          "<center> 和绝望，</center><center>和睦相处</center>" , "<center>某天，你无端想起一个人<br>她曾让你对明天有所期许，但是却完全没有出现在你的明天里<br>——《再见金华站》","<center>但我们也知道，故事一定是要结束的<br>命运安排这一场<br>是为了后半生的午夜梦回做了个铺垫</center>","<center>目之所及皆是回忆，心之所想皆是过往，眼之所看皆是遗憾。</center>","<center>一瞬错过，一辈子不见。</center>","<center>不醉风月不罢休，只愿逍遥乐无忧。</center>","<center>人生若只如初见，何事秋风悲画扇。</center>"];
 if(document.getElementById("onePoem")!=null) document.getElementById("onePoem").innerHTML=st[Math.floor((Math.random()*31))];
-
-//if(width<want_width) Home.style="width:100%",TopMenuMain.style="width:100%";
-//else Home.style="width:"+want_width+"px;",TopMenuMain.style="width:"+want_width+"px;";
-
-/*****************************************************************/
-
 
 /*******************************************************************************************/
 
@@ -291,20 +275,6 @@ for(let el of document.querySelectorAll('.AlwaysHideButton')){
 }
 
 </script>
-
-
-<script>
-/*
-window.onresize=function(){
-	let width_now=document.body.clientWidth;
-	if(width_now<want_width) Home.style="width:100%;",TopMenuMain.style="width:100%";
-	else Home.style="width:"+want_width+"px;",TopMenuMain.style="width:"+want_width+"px;";
-	if(Math.max(home_min_width,Math.floor(width_now*0.7))>want_width) want_width=Math.max(home_min_width,Math.floor(width_now*0.7));
-//	console.log("now,want_width is : "+want_width);
-}
-*/
-</script>
-
 
 <script>
 var topMenu=document.getElementById("topMenu"),now,last=0,type=0;
@@ -395,8 +365,7 @@ function showAndHideNarrowTopmenu(){
 <script>
 /*将侧边栏复制到menu里*/
 //window.onload = function(){
-
-window.addEventListener("load", (event) => {
+window.document.addEventListener("DOMContentLoaded", (event) => {
 		console.log("copying!");
 	let menu = document.getElementById("menuList");
 
@@ -412,7 +381,15 @@ window.addEventListener("load", (event) => {
 	footer.id = "others";
 	document.getElementById("bottom").appendChild(footer);
 });
-//};
+</script>
+
+<script>
+/******** 同步两个搜索框 **********/
+
+window.document.getElementById("q2").addEventListener("change", (event) => {
+	document.getElementById("q").value = event.target.value;
+});
+
 </script>
 
 <script>
