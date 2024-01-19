@@ -364,8 +364,7 @@ function showAndHideNarrowTopmenu(){
 
 <script>
 /*将侧边栏复制到menu里*/
-//window.onload = function(){
-window.document.addEventListener("DOMContentLoaded", (event) => {
+const copyMenuStuff = () => {
 		console.log("copying!");
 	let menu = document.getElementById("menuList");
 
@@ -380,12 +379,19 @@ window.document.addEventListener("DOMContentLoaded", (event) => {
 	let footer = document.getElementById("footer").cloneNode(true);
 	footer.id = "others";
 	document.getElementById("bottom").appendChild(footer);
-});
-</script>
+};
 
-<script>
+if(document.readyState !== "loading"){
+	copyMenuStuff();
+}
+else{
+	window.document.addEventListener("DOMContentLoaded", (event) => {
+		console.log("fuck you");
+		copyMenuStuff();
+	});
+}
+
 /******** 同步两个搜索框 **********/
-
 window.document.getElementById("q2").addEventListener("change", (event) => {
 	document.getElementById("q").value = event.target.value;
 });

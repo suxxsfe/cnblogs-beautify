@@ -448,9 +448,8 @@ li.narrowTopmenuUlproperty:hover > a{
 	overflow-y:hidden;
 	display:block;
 	width:100%;
-	height:100%;
+	height:0%;
 	max-height:100%;
-	background-image:url("http://1.s60i.faiusr.com/2/1010/APIHCAIQt9PivwUYzNaQXCCADyj0Aw.jpg");
 	background-repeat:no-repeat;
 	background-position:center;
 	position:absolute;
